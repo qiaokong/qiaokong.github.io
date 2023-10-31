@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Hexo部署出现Spawn failed错误的解决方法</title>
+      <link href="/2023/11/01/Hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Spawn-failed%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
+      <url>/2023/11/01/Hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0Spawn-failed%E9%94%99%E8%AF%AF%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p>本地创建 SSH key</p><figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre>ssh-keygen -t rsa -C <span class="token string">"xxxxxx@xxx.com"</span></pre></td></tr></table></figure><p>回车后提示：Enter file in which to save the key (/c/Users/Administrator/.ssh/id_rsa): // 这里的 username 是电脑上的用户名，地址也是文件的存储地址，然后回车</p><p>如果以前有存储地址会返回 / Users/your username/.ssh/id_rsa already exists.Overwrite (y/n)? 直接输入 y 回车</p><p>如果没有储存地址就会出现 Enter passphrase (empty for no passphrase); 也直接回车<br />两种情况回车后都会出现 Enter same passphrase again 然后接着回车</p><p>SSH key 生成完成，文件目录位于：c/Users/Administrator/.ssh/id_rsa.pub.</p><p>进入 github，在 setting 中找到 SSH Keys，新建一个 SSH keys，将 id_rsa.pub 中的内容复制进去，保存</p><p>通过以下指令验证是否成功，执行以下命令后若返回端口号则表示已经成功链接</p><figure class="highlight bash"><figcaption data-lang="bash"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token function">ssh</span> -T git@github.com</pre></td></tr></table></figure><p>若以上步骤执行后仍无效，则可进行如下尝试</p><p>修改本地 DNS 文件，编辑 C:\Windows\System32\drivers\etc 目录下的 hosts 文件<br />在文件内容最下方加入一行 140.82.113.4<br /> 完成后保存即可</p><p>此篇为转载，原文见<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzc0MzgwNC9hcnRpY2xlL2RldGFpbHMvMTA2Mjg1NzM4"> Git 配置 SSH 密钥</span>及 <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0hhY2tlcl9NQUkvYXJ0aWNsZS9kZXRhaWxzLzEyMzI3MDgzNg==">搭建 github-ssh 连接时，Could not resolve hostname github 的解决方案 (无法 ping 通 github)</span></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 解决方案 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>音乐理论摘记</title>
       <link href="/2023/09/22/%E9%9F%B3%E4%B9%90%E7%90%86%E8%AE%BA%E6%91%98%E8%AE%B0/"/>
       <url>/2023/09/22/%E9%9F%B3%E4%B9%90%E7%90%86%E8%AE%BA%E6%91%98%E8%AE%B0/</url>
@@ -159,9 +178,9 @@
       
         <tags>
             
-            <tag> midi </tag>
-            
             <tag> 摘记 </tag>
+            
+            <tag> midi </tag>
             
         </tags>
       
@@ -180,9 +199,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> 解决方案 </tag>
+            
+            <tag> 笔记 </tag>
             
         </tags>
       
